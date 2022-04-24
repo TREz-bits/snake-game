@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#board {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  .board_info {
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    #start {
+      font-size: 25px;
+      background-color: #f35a69;
+      border: none;
+      color: white;
+    }
+    #scoreBar {
+      display: inline-flex;
+    }
+  }
+  #gameOver {
+    display: none;
+  }
+}
