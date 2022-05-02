@@ -2,28 +2,51 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: monospace;
 }
 
 #board {
-  border: 1px solid black;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  .board_info {
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    #start {
-      font-size: 25px;
-      background-color: #f35a69;
-      border: none;
-      color: white;
-    }
-    #scoreBar {
-      display: inline-flex;
-    }
+  max-width: 500px;
+}
+
+.square {
+  aspect-ratio: 1;
+}
+
+.emptySquare {
+  background-color: #456990;
+}
+
+.snakeSquare {
+  background-color: #ccf47f;
+}
+
+.foodSquare {
+  background-color: #f35a69;
+}
+
+.board_info {
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 25px;
+  #start {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 25px;
+    background-color: #f35a69;
+    border: none;
+    color: white;
   }
-  #gameOver {
-    display: none;
+  #scoreBoard {
+    display: inline-flex;
   }
+}
+
+#gameOver {
+  display: none;
 }
