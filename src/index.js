@@ -1,4 +1,5 @@
 import "./main.scss"
+const axios = require('axios')
 
 // HTML Elements
 const board = document.querySelector('#board')
@@ -76,20 +77,29 @@ const setGame = () => {
   createBoard()
 }
 
-const startGame = () => {
+const startGame = async () => {
   setGame()
   gameOverSign.style.display = 'none'
   startButton.disabled = true
   drawSnake();
-  updateScore();
+ 
   createRandomFood()
   document.addEventListener('keydown', directionEvent)
+  let response
+  //http://localhost:7001/v1/
+
+  await axios.get('http://localhost:7001/v1/login/ip')
+    .then(res => {
+      response = res.data
+    })
+
+  updateScore(JSON.stringify(response));
 }
 
 startButton.addEventListener('click', startGame)
 
-const updateScore = () => {
-  scoreBoard.innerText = score
+const updateScore = (res) => {
+  scoreBoard.innerText = res
 }
 
 const createRandomFood = () => {
